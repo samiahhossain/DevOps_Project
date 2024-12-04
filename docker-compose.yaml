@@ -1,0 +1,54 @@
+# This is just a template placeholder docker-compose file. Use relevant sections which are applicable, 
+# and feel free to customize.
+version: '3.8'
+
+services:
+  frontend:
+    # Specify the build context for the frontend
+    build: ./frontend
+    # Map the host port to the container port
+    ports:
+      - "3000:3000"
+    # Specify dependencies (if applicable)
+    depends_on:
+      - backend
+    # Additional options (uncomment and configure as needed):
+    
+    # Specify environment variables if needed
+    environment:
+      REACT_APP_BACKEND_URL: http://localhost:5000
+    
+    # Specify volume for live code reloading (optional)
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    
+    # Specify the command to run the development server (if different from Dockerfile)
+    command: npm start
+
+  backend:
+    # Specify the build context for the backend
+    build: ./backend
+    # Map the host port to the container port
+    ports:
+      - 5000:5000
+    # Additional options (uncomment and configure as needed):
+    
+    # Specify environment variables if needed
+    # environment:
+    
+    # Specify volume for live code reloading (optional)
+    volumes:
+      - ./backend:/app
+    
+    # Specify the command to run the development server (if different from Dockerfile)
+    # command:
+
+# Additional components (uncomment and configure as needed):
+# Define a custom network (if applicable)
+networks:
+  default:
+    driver: bridge
+
+# Define volumes (if applicable)
+# volumes:
