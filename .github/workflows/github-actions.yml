@@ -73,10 +73,10 @@ jobs:
         uses: docker/setup-buildx-action@v2
       # TODO: Build frontend Docker image
       - name: Build Frontend Docker Image
-        run: docker build -t your-dockerhub-username/frontend:latest ./frontend
+        run: docker build -t samiahh/frontend:latest ./frontend
       # TODO: Build backend Docker image
       - name: Build Backend Docker Image
-        run: docker build -t your-dockerhub-username/backend:latest ./backend
+        run: docker build -t samiahh/backend:latest ./backend
       # TODO: Push images to Docker Hub (if on main branch)
       - name: Login to Docker Hub
         uses: docker/login-action@v2
@@ -85,10 +85,10 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Push Frontend Docker Image
-        run: docker push your-dockerhub-username/frontend:latest
+        run: docker push samiahh/frontend:latest
 
       - name: Push Backend Docker Image
-        run: docker push your-dockerhub-username/backend:latest
+        run: docker push samiahh/backend:latest
 
   # OPTIONAL: Define a deployment job (if applicable)
   deploy:
