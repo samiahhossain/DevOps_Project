@@ -15,11 +15,11 @@ Users interact with it via a web interface.
 
 - **Which files are you implementing? and why?:**
 
-Dockerfile (frontend): makes the frontend portable and consistent across environments
-requirements.txt: lists python dependencies
-Dockerfile (backend): consistent deployent for backend
-github-actions.yml: pipeline for automated testing/building/deployment
-docker-compose.yml: multi-container orchestration
+- Dockerfile (frontend): makes the frontend portable and consistent across environments
+- requirements.txt: lists python dependencies
+- Dockerfile (backend): consistent deployent for backend
+- github-actions.yml: pipeline for automated testing/building/deployment
+- docker-compose.yml: multi-container orchestration
 
 - _**Any other explanations for personal note taking.**_
 
@@ -34,26 +34,26 @@ None.
     - Here please explain the `Dockerfile` created for the Python Backend API. 
     - This can be a simple explanation which serves as a reference guide, or revision to you when read back the readme in future. 
 
-FROM python:3.9-slim: start with python image
-WORKDIR /app: sets /app as the working directory inside the container
-COPY . .: copies everything from current directory to /app in the container
-RUN pip install -r requirements.txt: installs packages listed in txt file
-EXPOSE 5000: app listens on port 5000 inside container
-ENV FLASK_ENV=production: run in production mode
-CMD ["python", "app.py"]: start when container is launched
+- FROM python:3.9-slim: start with python image
+- WORKDIR /app: sets /app as the working directory inside the container
+- COPY . .: copies everything from current directory to /app in the container
+- RUN pip install -r requirements.txt: installs packages listed in txt file
+- EXPOSE 5000: app listens on port 5000 inside container
+- ENV FLASK_ENV=production: run in production mode
+- CMD ["python", "app.py"]: start when container is launched
 
 - **Frontend Dockerfile** (React App):
     - Similar to the above section, please explain the Dockerfile created for the React Frontend Web Application. 
 
-FROM node:14-alpine: start with Alpine image
-WORKDIR /app: sets /app as the working directory inside the container
-COPY ./package.json ./package-lock.json ./: copy these files into container
-RUN npm install: install all dependencies in pachage.json
-COPY . .: copies everything from current directory to /app in the container
-RUN npm run build: run react build script for production
-EXPOSE 3000: app listens on port 3000 inside container
-ENV FLASK_ENV=production: run in production mode
-CMD ["npm", "start"]: start when container is launched
+- FROM node:14-alpine: start with Alpine image
+- WORKDIR /app: sets /app as the working directory inside the container
+- COPY ./package.json ./package-lock.json ./: copy these files into container
+- RUN npm install: install all dependencies in pachage.json
+- COPY . .: copies everything from current directory to /app in the container
+- RUN npm run build: run react build script for production
+- EXPOSE 3000: app listens on port 3000 inside container
+- ENV FLASK_ENV=production: run in production mode
+- CMD ["npm", "start"]: start when container is launched
 
 **Use this section to document your choices and steps for building the Docker images.**
 
